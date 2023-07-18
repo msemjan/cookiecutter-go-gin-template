@@ -1,4 +1,4 @@
-BINARY_NAME=my-amazing-app.out
+BINARY_NAME={{ cookiecutter.binary_name }}
 
 all: test build
 
