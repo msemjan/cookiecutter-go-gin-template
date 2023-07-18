@@ -2,7 +2,10 @@ BINARY_NAME={{ cookiecutter.binary_name }}
 
 all: test build
 
-build:
+bin:
+	mkdir ./bin
+
+build: bin
 	go build -o ./bin/${BINARY_NAME} main.go
 
 compile:

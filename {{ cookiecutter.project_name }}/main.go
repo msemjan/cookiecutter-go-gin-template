@@ -30,10 +30,13 @@ func main() {
 	// Create handler instances here
 	{{ cookiecutter.main_endpoint }}Hander := handlers.New{{ cookiecutter.main_endpoint.capitalize() }}Handler({{ cookiecutter.main_endpoint }}Repository)
 
+	// Group APIs
+	api := router.Group("/api")
+	v1  := api.Group("/v1")
 
 	// Register your endpoints
-	r.GET("/health", handlers.HealthHandler)
-	r.GET("/{{ cookiecutter.main_endpoint }}/:id", {{ cookiecutter.main_endpoint }}Handler.GetById)
+	v1.GET("/health", handlers.HealthHandler)
+	v1.GET("/{{ cookiecutter.main_endpoint }}/:id", {{ cookiecutter.main_endpoint }}Handler.GetById)
 
 	// Add more endpoint registrations as needed
 
