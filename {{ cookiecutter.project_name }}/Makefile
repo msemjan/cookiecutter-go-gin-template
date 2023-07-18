@@ -20,8 +20,9 @@ test:
 coverage:
 	go test ./... -coverprofile=coverage.out
 
-dep:
+deps:
 	go mod download
+	go install golang.org/x/tools/cmd/goimports@latest
 
 vet:
 	go vet

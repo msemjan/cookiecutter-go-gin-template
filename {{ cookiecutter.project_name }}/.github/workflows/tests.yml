@@ -1,0 +1,33 @@
+name: Tests
+
+on:
+  push:
+    branches:
+    - master
+    - dev
+  pull_request:
+    branches:
+    - master
+    - dev
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup Go
+      uses: actions/setup-go@v2
+      with:
+        go-version: '1.20.4'
+
+    - name: Install dependencies
+      run: |
+        go version
+        make deps
+
+    - name: Run build
+      run: make build
+
+    - name: Run tests
+      run: make test
