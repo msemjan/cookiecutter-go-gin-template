@@ -4,6 +4,7 @@ FROM golang:1.17 AS build-env
 ADD . /app
 WORKDIR /app
 RUN make build
+RUN make test
 
 # Final stage
 FROM scratch
