@@ -32,6 +32,9 @@ fmt:
 run: build
 	./bin/${BINARY_NAME}
 
+dockerBuild:
+	docker build .
+
 clean:
 	go clean
 	rm ./bin/freebsd-amd64-${BINARY_NAME}
